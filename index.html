@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Happy Birthday! 🎈</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #e0f2fe;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: #1e90ff;
+            margin-top: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            font-size: 2.5em; /* Bigger heading on larger screens */
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px; /* Slightly wider form for tablets */
+            margin: 20px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button {
+            background-color: #1e90ff;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0077cc;
+        }
+
+        .confetti-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            animation: confetti-fall 5s linear infinite;
+        }
+
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Media query for tablets */
+        @media (min-width: 601px) and (max-width: 1024px) {
+            h1 {
+                font-size: 2.2em; /* Slightly smaller heading on tablets */
+            }
+            form {
+                max-width: 500px; /* Wider form on tablets */
+            }
+        }
+
+        /* Media query for phones */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8em; /* Smaller heading on phones */
+            }
+            form {
+                width: 95%; /* Even wider form on phones */
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="confetti-container">
+        <script>
+            for (let i = 0; i < 100; i++) {
+                let confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = `${Math.random() * 100}vw`;
+                confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, ${Math.random() * 50 + 25}%)`;
+                confetti.style.animationDelay = `${Math.random() * 5}s`;
+                document.querySelector('.confetti-container').appendChild(confetti);
+            }
+        </script>
+    </div>
+    <h1>Happy Birthday, Md. Sakibul Hasan! 🎈</h1>
+    <h2>8 MARCH</h2>
+    <p>Please leave a birthday message for Sakibul:</p>
+
+    <form action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="0d45d940-dadd-4b0a-a21d-69820b5e3d8a">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
+
+        <button type="submit">Send Message</button>
+    </form>
+</body>
+</html>
